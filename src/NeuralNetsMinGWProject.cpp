@@ -11,6 +11,7 @@
 #include "platform/utils.h"
 #include "neuralnets/Vect.h"
 #include "neuralnets/NN.h"
+#include "neuralnets/NNUtils.h"
 
 using namespace std;
 

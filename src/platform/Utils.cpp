@@ -165,41 +165,14 @@ float char2float(const char* text) {
 }
 
 
-Vect createVect(int length, ...) {
-	va_list argp;
-	va_start(argp, length);
-	Vect result = Vect(length);
-	for (int i=0; i<length; i++) {
-		float f = va_arg(argp, double);
-		result.set(i, f);
-	}
-	va_end(argp);
-	return result;
-}
-
-Mat createMat(int rows, int cols, ...) {
-	va_list argp;
-	va_start(argp, cols);
-	Mat result = Mat(rows, cols);
-	for (int r=0; r<rows; r++) {
-		for (int c=0; c<cols; c++) {
-			float f = va_arg(argp, double);
-			result.set(r,c, f);
-		}
-	}
-	va_end(argp);
-	return result;
-}
-
-
 void throwError(const char *errMsg) {
 	log("\r\n\r\n");
 	log(errMsg);
 	log("\r\n");
-	while (true) {
+//	while (true) {
 		printf(errMsg);
-		exit(1);
-	}
+		exit(EXIT_FAILURE); // @suppress("Invalid arguments")
+//	}
 }
 
 void log(const char *msg) {
